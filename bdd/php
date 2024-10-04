@@ -1,0 +1,59 @@
+<?php
+// Connexion à PostgreSQL
+$conn = pg_connect("host=localhost dbname=projet user=postgres");
+
+// Vérification de la connexion
+if (!$conn) {
+    die("Erreur de connexion à la base de données");
+}
+
+// Récupération des données du formulaire
+$name = $_POST['name'];
+$email = $_POST['email'];
+$password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hasher le mot de passe
+
+// Insertion dans la base de données
+$query = "INSERT INTO users (name, email, password) VALUES ($1, $2, $3)";
+$result = pg_query_params($conn, $query, array($name, $email, $password));
+
+if ($result) {
+    echo "Inscription réussie !";
+} else {
+    echo "Erreur lors de l'inscription.";
+}
+
+// Fermeture de la connexion
+pg_close($conn);
+?>
+
+<?php
+// Connexion à PostgreSQL
+$conn = pg_connect("host=localhost dbname=projet user=postgres");
+
+// Vérification de la connexion
+if (!$conn) {
+    die("Erreur de connexion à la base de données");
+}
+
+// Récupération des données du formulaire
+$email = $_POST['email'];
+$password = $_POST['password'];
+
+// Recherche de l'utilisateur par email
+$query = "SELECT * FROM users WHERE email = $1";
+$result = pg_query_params($conn, $query, array($email));
+
+if ($row = pg_fetch_assoc($result)) {
+    // Vérification du mot de passe
+    if (password_verify($password, $row['password'])) {
+        echo "Connexion réussie !";
+    } else {
+        echo "Mot de passe incorrect.";
+    }
+} else {
+    echo "Utilisateur non trouvé.";
+}
+
+// Fermeture de la connexion
+pg_close($conn);
+?>

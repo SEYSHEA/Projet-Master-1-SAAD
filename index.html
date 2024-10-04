@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Rectangle Beige avec Navigation et Inscription/Connexion</title>
+    <link rel="stylesheet" href="C:/Users/cloeg/OneDrive/Bureau/projet/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500" rel="stylesheet">
+</head>
+<body>
+    <!-- Barre de navigation (sans JS) -->
+    <section class="et-hero-tabs">
+        <div class="et-hero-tabs-container">
+            <a class="et-hero-tab" href="#tab-es6">ES6</a>
+            <a class="et-hero-tab" href="#tab-flexbox">Flexbox</a>
+            <a class="et-hero-tab" href="#tab-react">React</a>
+            <a class="et-hero-tab" href="#tab-angular">Angular</a>
+            <a class="et-hero-tab" href="#tab-other">Other</a>
+            <span class="et-hero-tab-slider"></span>
+        </div>
+    </section>
+
+    <!-- Section principale avec le rectangle, les lettres, et le formulaire d'inscription/connexion -->
+    <main class="et-main">
+        <section class="et-slide" id="tab-es6">
+            <div class="rectangle">
+                <div class="main-container">
+                    <div class="first-container share">
+                        <h1>
+                            <span>W</span><span>e</span><span>M</span><span>o</span><span>v</span><span>e</span>
+                        </h1>
+                    </div>
+                    <div class="second-container share">
+                        <h1>
+                            <span>W</span><span>e</span><span>T</span><span>a</span><span>l</span><span>k</span>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+            <!-- Image gauche -->
+            <img src="C:/Users/cloeg/OneDrive/Bureau/projet/images/sala2.png" alt="Image gauche" class="image-gauche">
+
+            <!-- Formulaire d'inscription/connexion à droite -->
+            <div class="form-container">
+                <div id="form-content" class="content">
+                    <div class="welcome" id="form-title">S'inscrire</div>
+                    <div class="subtitle" id="form-subtitle">Créez un compte pour utiliser nos services.</div>
+
+                    <!-- Formulaire d'inscription -->
+                    <form action="php/register.php" method="POST" id="register-form">
+                        <div class="input-fields">
+                            <input type="text" name="name" placeholder="Nom" id="name-field" class="input-line full-width" required>
+                            <input type="email" name="email" placeholder="Email" class="input-line full-width" id="email-field" required>
+                            <input type="password" name="password" placeholder="Mot de passe" class="input-line full-width" id="password-field" required>
+                        </div>
+                        <div><button class="ghost-round full-width" type="submit">Créer un compte</button></div>
+                    </form>
+
+                    <!-- Formulaire de connexion -->
+                    <form action="php/login.php" method="POST" id="login-form" style="display: none;">
+                        <div class="input-fields">
+                            <input type="email" name="email" placeholder="Email" class="input-line full-width" required>
+                            <input type="password" name="password" placeholder="Mot de passe" class="input-line full-width" required>
+                        </div>
+                        <div><button class="ghost-round full-width" type="submit">Se connecter</button></div>
+                    </form>
+
+                    <!-- Lien pour basculer entre inscription et connexion -->
+                    <div class="highlight" id="toggle-form">Déjà inscrit ? <span id="toggle-text">Se connecter</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Autres sections de contenu -->
+        <section class="et-slide" id="tab-flexbox">
+            <h1>Flexbox</h1>
+            <h3>something about flexbox</h3>
+        </section>
+        <section class="et-slide" id="tab-react">
+            <h1>React</h1>
+            <h3>something about react</h3>
+        </section>
+        <section class="et-slide" id="tab-angular">
+            <h1>Angular</h1>
+            <h3>something about angular</h3>
+        </section>
+        <section class="et-slide" id="tab-other">
+            <h1>Other</h1>
+            <h3>something about other</h3>
+        </section>
+    </main>
+
+    <!-- Lien vers le fichier JavaScript externe -->
+    <script src="C:/Users/cloeg/OneDrive/Bureau/projet/js/script.js"></script>
+</body>
+</html>
